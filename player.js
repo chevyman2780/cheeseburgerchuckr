@@ -24,10 +24,10 @@ class Player {
   //Move player
   move() {
     if (keys.w) {
-      this.velY = -5;
-      if (this.turn == 1 && this.velY == -5) {
+      if (!keys['s']) this.velY = -5;
+      if (this.turn == 1 && !keys['s']) {
         this.rotate = -45;
-      } else if (this.turn == -1 && this.velY == -5) {
+      } else if (this.turn == -1 && !keys['s']) {
         this.rotate = 45;
       }
       
@@ -37,18 +37,20 @@ class Player {
     }
 
     if (keys.a) {
-      this.velX = -5;
-      this.turn = -1;
+      if (!keys['d']) {
+        this.velX = -5;
+        this.turn = -1;
+      }
       if (this.walking == false) {
         this.walking = true;
       }
     }
 
     if (keys.s) {
-      this.velY = 5;
-      if (this.turn == -1 && this.velY == 5) {
+      if (!keys['w']) this.velY = 5;
+      if (this.turn == -1 && !keys['w']) {
         this.rotate = -45;
-      } else if (this.turn == 1 && this.velY == 5) {
+      } else if (this.turn == 1 && !keys['w']) {
         this.rotate = 45;
       }
 
@@ -58,8 +60,10 @@ class Player {
     }
 
     if (keys.d) {
-      this.velX = 5;
-      this.turn = 1;
+      if (!keys['a']) {
+        this.velX = 5;
+        this.turn = 1;
+      }
       if (this.walking == false) {
         this.walking = true;
       }
