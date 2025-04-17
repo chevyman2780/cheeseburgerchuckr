@@ -36,7 +36,7 @@ class Background {
     ]
     this.lastSong = '';
     this.availableSongs = [];
-    this.intro = true
+    this.intro = false;
   }
 
   chooseBackground() {
